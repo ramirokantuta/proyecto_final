@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+/*
+Route::get('/', function () {
+    return view('welcome');
+});
+*/
+
+//modulo inicio
+Route::get('/','ControllerProducto@index')->name('pro.index');
+// modulo de productos
+Route::get('/adminProductos','ControllerProducto@adminProductos')->name('pro.adminProductos');
+//boton nuevoProducto
+Route::get('/nuevoProducto','ControllerProducto@nuevoProducto')->name('pro.nuevoProducto');
+Route::post('/nuevoRegistroProducto','ControllerProducto@nuevoRegistroProducto')->name('pro.nuevoRegistroProducto');
+//boton eliminarProducto
+Route::post('/eliminarProducto','ControllerProducto@eliminarProducto')->name('pro.eliminarProducto');
+
+// boton editarProducto
+Route::get('/editarProducto/{id}','ControllerProducto@editarProducto')->name('pro.editarProducto');
+Route::post('/editarRegistroProducto','ControllerProducto@editarRegistroProducto')->name('pro.editarRegistroProducto');
+
+
+Route::get('/reportePdf','ControllerProducto@reportePdf');
+Route::get('/reporteExcel','ControllerProducto@reporteExcel');
+
+Route::get('/grafico','ControllerProducto@grafico');
+
+Route::post('/grafico_resp','ControllerProducto@grafico_resp')->name('pro.grafico_resp');
